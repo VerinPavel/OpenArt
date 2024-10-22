@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./AI.module.scss";
+import styles from "./Ai.module.scss";
 import { Filter } from "../../../components/Filter";
 import { Products } from "../../../components/Products";
 import { data } from "../lib/data";
