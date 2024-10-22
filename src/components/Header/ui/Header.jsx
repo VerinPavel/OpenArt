@@ -8,12 +8,12 @@ const Header = () => {
       <div className={styles.wrap}>
         <div className={styles.logoSection}>
           <Burger />
-          <p className={styles.logo}>OpenArt</p>
+          <p className={styles.logo}>RRGroup</p>
         </div>
-        <div className={styles.buttons}>
+        {/* <div className={styles.buttons}>
           <button className={styles.btn}>Upgrade</button>
           <button className={styles.btn}>Create</button>
-        </div>
+        </div> */}
       </div>
     </header>
   );

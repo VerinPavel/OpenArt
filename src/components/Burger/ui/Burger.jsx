@@ -40,7 +40,7 @@ export default function Burger() {
       {isOpen && (
         <div className={`${isMenuOpen ? styles.open : ""} ${styles.menu} `}>
           <div className={styles.logoWrap}>
-            <p className={styles.logo}>OpenArt</p>
+            <p className={styles.logo}>RRGroup</p>
             <svg
               onClick={() => handleOpenWindow()}
               width="35"
