@@ -1,0 +1,43 @@
+.ai {
+  // max-width: 1456px;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 64px;
+  // margin: 0 auto;
+  margin-top: 40px;
+
+  input {
+    border: 1px solid rgba(145, 158, 171, 0.32);
+    border-radius: 8px;
+    outline: none;
+    padding: 10px 15px;
+    cursor: text;
+    font-size: 18px;
+
+    &:hover {
+      border-color: white;
+    }
+  }
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  // justify-content: space-between;
+  margin-bottom: 20px;
+
+  p {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: normal;
+  }
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 28px;
+  line-height: 28px;
+}
