@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router";
 
 import { publicRoutes } from "../model/routerConfig";
-import { Layout } from "../../../pages/Layout";
+import { Layout } from "../../Layout";
 
 const Router = () => {
   return (
