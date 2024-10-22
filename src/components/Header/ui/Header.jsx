@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import React from "react";
 import styles from "./Header.module.scss";
 import Burger from "../../Burger/ui/Burger";
@@ -8,7 +9,9 @@ const Header = () => {
       <div className={styles.wrap}>
         <div className={styles.logoSection}>
           <Burger />
-          <p className={styles.logo}>RRGroup</p>
+          <NavLink to={"/"} style={{ textDecoration: "none", color: "white" }}>
+            <p className={styles.logo}>RRGroup</p>
+          </NavLink>
         </div>
         {/* <div className={styles.buttons}>
           <button className={styles.btn}>Upgrade</button>

@@ -57,7 +57,7 @@ const Technology = () => {
       <div style={{ width: "100%", minHeight: "100vh", height: "1000px" }}>
         <iframe
           title="Google Map"
-          src="https://fluxstudio-gentoolz.ngrok.io/"
+          src="https://comfyui-gentoolz-ngrok-io.ngrok.pro/"
           width="100%"
           height="100%"
           frameBorder="0"
