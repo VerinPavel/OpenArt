@@ -3,7 +3,7 @@ import styles from "./Technology.module.scss";
 import { NavLink, useParams } from "react-router-dom";
 import { data } from "../../Ai/lib/data";
 
-export default function Technology() {
+const Technology = () => {
   const { category, technology } = useParams();
   const array = data.filter((arr) => arr.id == category)[0];
   const items = array.category.filter((item) => item.id == technology)[0];
@@ -54,7 +54,7 @@ export default function Technology() {
           </svg>
         </NavLink>
       </div>
-      {/* <div style={{ width: "100%", minHeight: "100vh", height: "1000px" }}>
+      <div style={{ width: "100%", minHeight: "100vh", height: "1000px" }}>
         <iframe
           // title="Google Map"
           src="https://comfyui-gentoolz-ngrok-io.ngrok.pro/"
@@ -62,12 +62,12 @@ export default function Technology() {
           height="100%"
           frameBorder="0"
         />
-      </div> */}
+      </div>
     </section>
   ) : (
     <div className={styles.itemContainer}>
       <NavLink to={"/"}>НАЗАД</NavLink>
     </div>
   );
-}
-// export { Technology };
+};
+export { Technology };

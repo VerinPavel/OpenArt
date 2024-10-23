@@ -4,7 +4,7 @@ import { Filter } from "../../../components/Filter";
 import { Products } from "../../../components/Products";
 import { data } from "../lib/data";
 
-export default function Ai() {
+const Ai = () => {
   const [selectedCategory, setSelectedCategory] = useState("Все");
 
   const filteredData =
@@ -22,5 +22,5 @@ export default function Ai() {
       <Products data={filteredData} />
     </section>
   );
-}
-// export { Ai };
+};
+export { Ai };

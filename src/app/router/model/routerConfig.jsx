@@ -1,5 +1,5 @@
-import Ai from "../../../Pages/Ai/ui/Ai.jsx";
-import Technology from "../../../Pages/Technology/ui/Technology.jsx";
+import { Ai } from "../../../Pages/Ai";
+import { Technology } from "../../../Pages/Technology";
 
 const publicRoutes = [
   {
