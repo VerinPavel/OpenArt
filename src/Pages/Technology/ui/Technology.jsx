@@ -54,7 +54,7 @@ const Technology = () => {
           </svg>
         </NavLink>
       </div>
-      <div style={{ width: "100%", minHeight: "100vh", height: "1000px" }}>
+      {/* <div style={{ width: "100%", minHeight: "100vh", height: "1000px" }}>
         <iframe
           title="Google Map"
           src="https://comfyui-gentoolz-ngrok-io.ngrok.pro/"
@@ -62,7 +62,7 @@ const Technology = () => {
           height="100%"
           frameBorder="0"
         />
-      </div>
+      </div> */}
     </section>
   ) : (
     <div className={styles.itemContainer}>
