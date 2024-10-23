@@ -1,19 +1,16 @@
-import { Ai } from "../../../Pages/Ai";
-import { Technology } from "../../../Pages/Technology";
+import Ai from "../../../Pages/Ai/ui/Ai.jsx";
+import Technology from "../../../Pages/Technology/ui/Technology.jsx";
 
 const publicRoutes = [
   {
     name: "Ai",
     path: "/",
     component: <Ai />,
-    // exact: true,
   },
   {
     name: "Technology",
-    // path: "/Technology/:id",
-    path: "/Technology/:id/:idd",
+    path: "/Technology/:category/:technology",
     component: <Technology />,
-    // exact: true,
   },
 ];
 
