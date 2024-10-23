@@ -1,10 +1,10 @@
 .ai {
   // max-width: 1456px;
   // width: 100%;
-  min-height: 100vh;
+  height: calc(100vh - 115px);
   padding: 0 64px;
-  // margin: 0 auto;
   margin-top: 40px;
+  overflow-y: auto;
 
   input {
     border: 1px solid rgba(145, 158, 171, 0.32);
