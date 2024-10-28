@@ -1,13 +1,15 @@
 import { Router } from "./app/router";
 import "./App.css";
+import { useCategories } from "./store/store";
+import { useEffect } from "react";
 
 function App() {
-  // return (
-  //   <>
-  //     <Header />
-  //     <AI />
-  //   </>
-  // );
+  const categoriesState = useCategories();
+  const { getCategories } = categoriesState;
+  useEffect(() => {
+    getCategories();
+  }, []);
+
   return <Router />;
 }
 

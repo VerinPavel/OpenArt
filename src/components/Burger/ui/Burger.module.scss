@@ -1,6 +1,7 @@
 .burger {
   svg {
     cursor: pointer;
+    display: block;
   }
 }
 
@@ -40,10 +41,26 @@
 }
 
 .nav {
-  margin: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 16px;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
   padding: 12px 16px;
-  background-color: black;
   border-radius: 8px;
+  background-color: transparent;
+
+  &:hover {
+    background-color: black;
+  }
+}
+
+.activeLink {
+  background-color: black;
 }
 
 .title {

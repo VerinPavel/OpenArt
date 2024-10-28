@@ -4,40 +4,42 @@ import styles from "./Filter.module.scss";
 const Filter = ({ onSelectCategory, data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // const handleButtonClick = (id) => {
-  //   setActiveIndex(id);
-  // };
-
   const handleButtonClick = (title, id) => {
     onSelectCategory(title);
     setActiveIndex(id);
   };
 
-  const d = data.slice();
+  if (!data) return null;
 
-  const a = {
+  const category = data.slice();
+
+  const all = {
     id: 0,
-    title: "Все",
+    name: "Все",
   };
-
-  d.unshift(a);
+  category.unshift(all);
 
   return (
-    <div className={styles.filter}>
-      {d.map((item) => (
-        <button
-          key={item.id}
-          className={styles.btn}
-          style={{
-            color: activeIndex === item.id ? "#FFF" : "#98989A",
-            borderColor: activeIndex === item.id ? "#A1A2A3" : "transparent",
-          }}
-          onClick={() => handleButtonClick(item.title, item.id)}
-        >
-          {item.title}
-        </button>
-      ))}
-    </div>
+    <>
+      {category ? (
+        <div className={styles.filter}>
+          {category.map((item) => (
+            <button
+              key={item.id}
+              className={styles.btn}
+              style={{
+                color: activeIndex === item.id ? "#FFF" : "#98989A",
+                borderColor:
+                  activeIndex === item.id ? "#A1A2A3" : "transparent",
+              }}
+              onClick={() => handleButtonClick(item.name, item.id)}
+            >
+              {item.name}
+            </button>
+          ))}
+        </div>
+      ) : null}
+    </>
   );
 };
 export { Filter };

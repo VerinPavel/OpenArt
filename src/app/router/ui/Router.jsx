@@ -1,32 +1,23 @@
 import { Route, Routes } from "react-router";
 
-import { publicRoutes } from "../model/routerConfig";
+import RouterConfig from "../model/routerConfig";
+// import { publicRoutes } from "../model/routerConfig";
 import { Layout } from "../../Layout";
 
 const Router = () => {
+  const routes = RouterConfig();
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        {publicRoutes.map((route) => (
+        {routes?.map((route, index) => (
           <Route
             path={route.path}
             element={route.component}
             index={route.index}
             exact={route.exact}
-            key={route.path}
+            key={`route-${index}`}
           />
         ))}
-        {/* Дальше приватные роуты */}
-        {/* <Route element={<PrivateRouter />}>
-          {privateRoutes.map((route) => (
-            <Route
-              path={route.path}
-              element={route.component}
-              key={route.path}
-              exact={route.exact}
-            />
-          ))}
-        </Route> */}
       </Route>
     </Routes>
   );
