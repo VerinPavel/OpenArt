@@ -30,6 +30,7 @@ import { useEffect, useState } from "react";
 import { Ai } from "../../../Pages/Ai";
 import { Technology } from "../../../Pages/Technology";
 import { useCategories } from "../../../store/store";
+import { Home } from "../../../Pages/Home/ui/Home";
 
 export default function RouterConfig() {
   const categoriesState = useCategories();
@@ -46,34 +47,43 @@ export default function RouterConfig() {
     {
       name: "Technology",
       slug: "/ai-tools/:category/:technology",
-    },
-  ];
-  const publicRoutes = [
-    {
-      name: "Ai",
-      path: "ai-tools",
-      component: <Ai />,
-    },
-    {
-      name: "Technology",
-      path: "ai-tools/:category/:technology",
       component: <Technology />,
     },
+    {
+      name: "Home",
+      slug: "/",
+      component: <Home />,
+    },
   ];
+
   let dynamicRoutes = [];
   if (routes?.length) {
     dynamicRoutes = routes?.map((route, index) => {
       return {
         name: route.name,
         path: route.slug,
-        component:
-          route.slug === "/ai-tools/:category/:technology" ? (
-            <Technology />
-          ) : (
-            <Ai id={index} />
-          ),
+        component: route.component ? route.component : <Ai id={index} />,
+        // component:
+        //   route.slug === "/ai-tools/:category/:technology" ? (
+        //     <Technology />
+        //   ) : (
+        //     <Ai id={index} />
+        //   ),
       };
     });
   }
   return dynamicRoutes;
 }
+
+// const publicRoutes = [
+//   {
+//     name: "Ai",
+//     path: "ai-tools",
+//     component: <Ai />,
+//   },
+//   {
+//     name: "Technology",
+//     path: "ai-tools/:category/:technology",
+//     component: <Technology />,
+//   },
+// ];

@@ -1,0 +1,79 @@
+.profile {
+  padding-right: 8px;
+}
+
+.img {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  overflow: hidden;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.drop {
+  position: absolute;
+  top: 0;
+  right: 8px;
+  width: 178px;
+  height: fit-content;
+  background-color: rgba(41, 41, 41, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 72px 0 20px 0;
+  overflow: hidden;
+}
+
+.dropAnimate {
+  animation-name: dropAnimation;
+  animation-duration: 0.4s;
+}
+
+@keyframes dropAnimation {
+  from {
+    opacity: 0;
+    // можно так же поиграться с выдвижением
+    // transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    // transform: translateY(0);
+  }
+}
+
+.info {
+  border-top: 1px solid rgba(145, 158, 171, 0.24);
+  padding-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.btn {
+  padding: 6px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 2px solid white;
+  color: white;
+  border-radius: 8px;
+  background-color: transparent;
+  transition: stroke 0.3s ease;
+
+  &:hover {
+    transition: stroke 0.3s ease;
+
+    background-color: #ffd400;
+    border-color: transparent;
+    color: rgb(29, 29, 29);
+  }
+}

@@ -1,0 +1,11 @@
+.svg {
+  &:hover {
+    transition: stroke 0.3s ease;
+    fill: #ffd400;
+
+    path {
+      transition: stroke 0.3s ease;
+      stroke: rgb(29, 29, 29);
+    }
+  }
+}

@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Ai.module.scss";
 import { Filter } from "../../../components/Filter";
 import { Products } from "../../../components/Products";
 import { useCategories } from "../../../store/store";
+import { useHeaderActive } from "../../../store/HeaderActive";
 
 const Ai = ({ id }) => {
   const categoriesState = useCategories();
   const { categories, loading, error } = categoriesState;
   const [selectedCategory, setSelectedCategory] = useState("Все");
 
+  const headerState = useHeaderActive();
+  const { setHeaderState, headerActive } = headerState;
+
+  useEffect(() => {
+    if (!headerActive) {
+      setHeaderState(true);
+    } else null;
+  }, []);
+
   const data = categories[0];
   const array = data[id].categories;
-  console.log(data[id]);
-  console.log(array);
 
   const filteredData =
     selectedCategory === "Все"

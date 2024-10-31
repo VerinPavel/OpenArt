@@ -47,6 +47,26 @@
   padding: 0 16px;
 }
 
+.homeLinkWrap {
+  border-bottom: 1px solid white;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+
+  &:hover .linkHome {
+    background-color: red;
+  }
+}
+
+.linkHome {
+  text-decoration: none;
+  color: white;
+  border-radius: 8px;
+}
+
+.activeLinkHome {
+  background-color: black;
+}
+
 .link {
   text-decoration: none;
   color: white;

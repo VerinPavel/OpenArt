@@ -1,5 +1,4 @@
-
-import { create } from 'zustand';
+import { create } from "zustand";
 
 // let categories = (set) => ({
 //   categories: [],
@@ -8,8 +7,6 @@ import { create } from 'zustand';
 
 //   getCategories: async () => {
 //     set({ loading: true });
-
-   
 
 //     const formdata = new FormData();
 //     formdata.append("action", "get-sections");
@@ -30,7 +27,7 @@ import { create } from 'zustand';
 //       });
 //     } catch (error) {
 //       console.log("error", error);
-      
+
 //       set({
 //         categories: [],
 //         error: 'Ошибка при получении данных'
@@ -40,6 +37,59 @@ import { create } from 'zustand';
 //     }
 //   },
 // });
+
+/////запрос user
+let user = (set) => ({
+  user: {},
+  loading: false,
+  error: null,
+
+  requestData: async (action) => {
+    set({ loading: true });
+
+    const formdata = new FormData();
+    formdata.append("action", action);
+
+    const requestOptions = {
+      method: "POST",
+      body: formdata,
+      redirect: "follow",
+    };
+
+    try {
+      const response = await fetch(
+        "https://portal.rrgroup.solutions/api/",
+        requestOptions
+      );
+      const result = await response.json();
+
+      set({
+        user: {
+          first_name: result.data.first_name,
+          last_name: result.data.last_name,
+          avatar: result.data.avatar,
+        },
+        error: null,
+      });
+    } catch (error) {
+      console.log("error", error);
+
+      set({
+        categories: [],
+        error: "Ошибка при получении данных",
+      });
+    } finally {
+      set({ loading: false });
+    }
+  },
+  getUsers: async () => {
+    await user(set).requestData("get-user");
+  },
+});
+
+export const useUser = create(user);
+
+///// Запрос категории
 
 let categories = (set) => ({
   categories: [],
@@ -59,7 +109,10 @@ let categories = (set) => ({
     };
 
     try {
-      const response = await fetch("https://portal.rrgroup.solutions/api/", requestOptions);
+      const response = await fetch(
+        "https://portal.rrgroup.solutions/api/",
+        requestOptions
+      );
       const result = await response.json();
 
       if (result.message === "reloadPage") {
@@ -69,14 +122,14 @@ let categories = (set) => ({
 
       set({
         categories: [result.data.sections],
-        error: null
+        error: null,
       });
     } catch (error) {
       console.log("error", error);
-      
+
       set({
         categories: [],
-        error: 'Ошибка при получении данных'
+        error: "Ошибка при получении данных",
       });
     } finally {
       set({ loading: false });
@@ -87,25 +140,60 @@ let categories = (set) => ({
     await categories(set).requestData("get-sections");
   },
   getUsers: async () => {
-    await categories(set).requestData("get-users");
+    await categories(set).requestData("get-user");
   },
   reloadPage: async () => {
     await categories(set).requestData("log-out");
-  }
+  },
 });
 
 export const useCategories = create(categories);
 
-let HeaderActive = (set) => ({
-  headerActive: true,
+//// получение url для iframe
 
-  setHeaderState: () => {
-    set((state) => {
-      const newHeaderActive = !state.headerActive;
-      // console.log(newHeaderActive); 
-      return { headerActive: newHeaderActive };
-    });
+let iframe = (set) => ({
+  iframeUrl: {},
+  loading: false,
+  error: null,
+
+  requestData: async (id) => {
+    set({ loading: true });
+
+    const formdata = new FormData();
+    formdata.append("action", "get-iframe-src");
+    formdata.append("tool_id", id);
+
+    const requestOptions = {
+      method: "POST",
+      body: formdata,
+      redirect: "follow",
+    };
+
+    try {
+      const response = await fetch(
+        "https://portal.rrgroup.solutions/api/",
+        requestOptions
+      );
+      const result = await response.json();
+
+      set({
+        iframeUrl: result,
+        error: null,
+      });
+    } catch (error) {
+      console.log("error", error);
+
+      set({
+        categories: [],
+        error: "Ошибка при получении данных",
+      });
+    } finally {
+      set({ loading: false });
+    }
   },
-})
+  getIframeUrl: async (id) => {
+    await iframe(set).requestData(id);
+  },
+});
 
-export const useHeaderActive = create(HeaderActive)
+export const useIframe = create(iframe);
