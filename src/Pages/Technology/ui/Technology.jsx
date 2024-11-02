@@ -62,10 +62,10 @@ const Technology = () => {
       : "calc(100vh - 220px)"
     : tablet
     ? fullScreen
-      ? "calc(100vh - 70px)"
+      ? "calc(100vh - 77px)"
       : "calc(100vh - 210px)"
     : fullScreen
-    ? "calc(100vh - 60px)"
+    ? "calc(100vh - 71px)"
     : "calc(100vh - 200px)"; // для mobile
 
   const padding = desctop

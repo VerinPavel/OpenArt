@@ -4,7 +4,6 @@
   margin-bottom: 20px;
 
   @media (max-width: 1279px) {
-    padding-bottom: 5px;
     &::-webkit-scrollbar {
       height: 2px;
     }
@@ -15,7 +14,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: #ffd400;
+      background-color: transparent;
       border-radius: 2px;
     }
     overflow-x: auto;

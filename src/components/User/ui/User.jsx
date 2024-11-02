@@ -3,10 +3,14 @@ import styles from "./User.module.scss";
 import { useRef } from "react";
 import { useCategories, useUser } from "../../../store/store";
 
+import { useMediaQuery } from "@react-hook/media-query";
 import useClickOutside from "../model/useClickOutSide";
 import useToggleVisibility from "../model/useToggleVisibility";
 
 const User = () => {
+  const tablet = useMediaQuery("(min-width: 769px) and (max-width: 1279px)");
+  const mobile = useMediaQuery("(min-width: 320px) and (max-width: 768px)");
+
   const categoriesState = useCategories();
   const { reloadPage } = categoriesState;
 
@@ -28,17 +32,21 @@ const User = () => {
       <div className={styles.img} onClick={handleClick}>
         <img src={user.avatar} alt={user.name} />
       </div>
-      {isVisible && (
+      {(isVisible || tablet || mobile) && (
         <div
-          className={`${styles.drop} ${isAnimating ? styles.dropAnimate : ""}`}
+          className={`${styles.drop} ${
+            isAnimating && !(tablet || mobile) ? styles.dropAnimate : ""
+          }`}
         >
           <div className={styles.info}>
             <p>{user.first_name}</p>
             <p>{user.last_name}</p>
           </div>
-          <button className={styles.btn} onClick={() => reloadPage()}>
-            Выход
-          </button>
+          {!tablet && !mobile ? (
+            <button className={styles.btn} onClick={() => reloadPage()}>
+              Выход
+            </button>
+          ) : null}
         </div>
       )}
     </div>

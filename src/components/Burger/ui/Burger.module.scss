@@ -6,6 +6,8 @@
 }
 
 .menu {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 0;
   left: -100%;
@@ -104,4 +106,36 @@
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.exitWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  border-top: 1px solid rgba(145, 158, 171, 0.24);
+  padding: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: black;
+  }
+
+  svg {
+    width: 20px;
+  }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    padding: 8px;
+  }
+}
+.exitText {
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: rgb(215, 10, 50);
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    font-size: 20px;
+  }
 }

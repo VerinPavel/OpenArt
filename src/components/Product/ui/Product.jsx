@@ -1,4 +1,4 @@
-import styles from "./Products.module.scss";
+import styles from "./Product.module.scss";
 
 import { NavLink } from "react-router-dom";
 
