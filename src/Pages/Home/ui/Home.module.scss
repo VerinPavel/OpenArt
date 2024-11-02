@@ -1,6 +1,14 @@
 .home {
   height: calc(100vh - 73px);
   margin: 0 auto;
+
+  @media (min-width: 769px) and (max-width: 1279px) {
+    padding: 15px 32px 0 32px;
+  }
+  @media (min-width: 320px) and (max-width: 768px) {
+    padding: 10px 16px 0 16px;
+  }
+
   div {
     display: flex;
     justify-content: center;

@@ -1,5 +1,6 @@
 import styles from "./Burger.module.scss";
 
+import { useMediaQuery } from "@react-hook/media-query";
 import { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -7,12 +8,16 @@ import { useCategories } from "../../../store/store";
 
 import useClickOutside from "../model/useClickOutSide";
 
+import { User } from "../../User";
 import { ExitSvg } from "./svg/ExitSvg";
 import { LogoSvg } from "./svg/LogoSvg";
 import { StarSvg } from "./svg/StarSvg";
 import { HomeSvg } from "./svg/HomeSvg";
 
 export default function Burger() {
+  const tablet = useMediaQuery("(min-width: 769px) and (max-width: 1279px)");
+  const mobile = useMediaQuery("(min-width: 320px) and (max-width: 768px)");
+
   const location = useLocation();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -75,7 +80,11 @@ export default function Burger() {
       {isOpen && (
         <div className={`${isMenuOpen ? styles.open : ""} ${styles.menu} `}>
           <div className={styles.logoWrap}>
-            <p className={styles.logo}>RRGroup</p>
+            {tablet || mobile ? (
+              <User />
+            ) : (
+              <p className={styles.logo}>RRGroup</p>
+            )}
             <ExitSvg onClick={handleOpenWindow} />
           </div>
           <nav className={styles.nav}>

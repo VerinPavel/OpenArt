@@ -1,5 +1,16 @@
 .profile {
   padding-right: 8px;
+
+  @media (min-width: 769px) and (max-width: 1279px) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  @media (min-width: 320px) and (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 }
 
 .img {
@@ -17,13 +28,20 @@
     height: 100%;
     object-fit: cover;
   }
+
+  @media (min-width: 769px) and (max-width: 1279px) {
+    position: unset;
+  }
+  @media (min-width: 320px) and (max-width: 768px) {
+    position: unset;
+  }
 }
 
 .drop {
   position: absolute;
   top: 0;
   right: 8px;
-  width: 178px;
+  // width: 178px;
   height: fit-content;
   background-color: rgba(41, 41, 41, 1);
   display: flex;
@@ -32,6 +50,21 @@
   gap: 8px;
   padding: 72px 0 20px 0;
   overflow: hidden;
+
+  @media (min-width: 769px) and (max-width: 1279px) {
+    position: unset;
+    padding: 0;
+    background-color: unset;
+    flex-direction: row;
+    gap: 30px;
+  }
+  @media (min-width: 320px) and (max-width: 768px) {
+    position: unset;
+    padding: 0;
+    background-color: unset;
+    flex-direction: row;
+    gap: 30px;
+  }
 }
 
 .dropAnimate {
@@ -57,6 +90,23 @@
   padding-top: 20px;
   width: 100%;
   text-align: center;
+
+  @media (min-width: 769px) and (max-width: 1279px) {
+    border-top: 0;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @media (min-width: 320px) and (max-width: 768px) {
+    border-top: 0;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .btn {
