@@ -15,6 +15,8 @@ const Products = ({ data }) => {
                 name={tool.name}
                 category_id={tool.category_id}
                 id={tool.id}
+                description={tool.description}
+                background={tool.background}
               />
             ))}
           </div>

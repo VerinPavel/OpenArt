@@ -20,7 +20,7 @@ const Header = () => {
         <div className={styles.logoSection}>
           <Burger />
           <NavLink to={"/"} style={{ textDecoration: "none", color: "white" }}>
-            <p className={styles.logo}>RRGroup</p>
+            <p className={styles.logo}>RRGroup portal</p>
           </NavLink>
         </div>
         {!(tablet || mobile) && <User />}

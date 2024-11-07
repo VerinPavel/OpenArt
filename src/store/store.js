@@ -137,7 +137,8 @@ let categories = (set) => ({
   },
 
   getCategories: async () => {
-    await categories(set).requestData("get-sections");
+    // await categories(set).requestData("get-sections");
+    await categories(set).requestData("dev_get_sections");
   },
   getUsers: async () => {
     await categories(set).requestData("get-user");
